@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: #222;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* =========================
+   部屋そのもの
+   ========================= */
+
+.room {
+  position: relative;
+
+  /*
+    ラフ画像に合わせて4:3にする。
+    縦横どちらにも画面からはみ出さない。
+  */
+  width: min(100vw, calc(100vh * 4 / 3));
+  aspect-ratio: 4 / 3;
+
+  background-image: url("room.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   透明ボタン
+   ========================= */
+
+.hotspot {
+  position: absolute;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
+
+
+/* =========================
+   カメラ
+   ========================= */
+
+.camera {
+  left: 15%;
+  top: 27%;
+
+  width: 13%;
+  height: 9%;
+}
+
+
+/* =========================
+   個展
+   壁の写真・絵あたり
+   ========================= */
+
+.gallery {
+  left: 34%;
+  top: 28%;
+
+  width: 15%;
+  height: 10%;
+}
+
+
+/* =========================
+   扇風機
+   ========================= */
+
+.fan {
+  left: 20%;
+  top: 45%;
+
+  width: 12%;
+  height: 25%;
+}
+
+
+/* =========================
+   ケーキ
+   ========================= */
+
+.cake {
+  left: 46%;
+  top: 61%;
+
+  width: 12%;
+  height: 10%;
+}
+
+
+/* =========================
+   ノート
+   ========================= */
+
+.diary {
+  left: 56%;
+  top: 58%;
+
+  width: 8%;
+  height: 10%;
+}
+
+
+/* =========================
+   スリッパ
+   ========================= */
+
+.slippers {
+  left: 18%;
+  top: 76%;
+
+  width: 13%;
+  height: 13%;
+}
+
+
+/* =========================
+   時計
+   後で本当の日本時間と連動させる
+   ========================= */
+
+.clock {
+  position: absolute;
+
+  right: 2%;
+  top: 14%;
+
+  width: 8%;
+  height: 10%;
+
+  pointer-events: none;
+}

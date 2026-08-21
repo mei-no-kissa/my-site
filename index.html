@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>わたしの部屋</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="room">
+
+    <!-- 絵の上に置く透明なクリック領域 -->
+    <button class="hotspot camera" aria-label="写真"></button>
+
+    <button class="hotspot gallery" aria-label="個展"></button>
+
+    <button class="hotspot fan" aria-label="扇風機"></button>
+
+    <button class="hotspot cake" aria-label="お菓子"></button>
+
+    <button class="hotspot diary" aria-label="日記"></button>
+
+    <button class="hotspot slippers" aria-label="スリッパ"></button>
+
+    <div class="clock" aria-label="時計"></div>
+
+  </main>
+
+  <audio id="cameraSound" src="camera.wav"></audio>
+
+  <div id="flash"></div>
+
+  <script>
+    const cameraButton = document.querySelector(".camera");
+    const cameraSound = document.getElementById("cameraSound");
+    const flash = document.getElementById("flash");
+
+    cameraButton.addEventListener("click", () => {
+      cameraSound.currentTime = 0;
+      cameraSound.play();
+
+      flash.classList.add("flash-on");
+
+      setTimeout(() => {
+        flash.classList.remove("flash-on");
+      }, 120);
+    });
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ page.title }}｜芽生</title>
+
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+
+<body class="recipe-page">
+
+  <article class="recipe-article">
+
+    <h1>{{ page.title }}</h1>
+
+    <img
+      src="{{ page.thumbnail | relative_url }}"
+      alt="{{ page.title }}"
+      class="recipe-main-image"
+    >
+
+    {{ content }}
+
+    <p>
+      <a href="{{ '/sweets.html' | relative_url }}">お菓子のボードにもどる</a>
+    </p>
+
+  </article>
+
+</body>
+
+</html>

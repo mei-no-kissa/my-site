@@ -1,0 +1,51 @@
+---
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>お菓子｜芽生</title>
+
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+
+<body class="sweets-page">
+
+  <main class="recipe-board">
+
+  
+    <div class="photo-grid">
+
+      {% assign sweets_posts = site.posts | where: "type", "sweets" %}
+
+      {% for post in sweets_posts limit:6 %}
+
+        <a
+          href="{{ post.url | relative_url }}"
+          class="recipe-photo"
+          aria-label="{{ post.title }}"
+        >
+          <img
+            src="{{ post.thumbnail | relative_url }}"
+            alt="{{ post.title }}"
+          >
+        </a>
+
+      {% endfor %}
+
+    </div>
+
+  </main>
+
+  <a class="back-room" href="{{ '/index.html' | relative_url }}">
+    部屋にもどる
+  </a>
+
+</body>
+
+</html>

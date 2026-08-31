@@ -154,3 +154,152 @@ body {
 
   pointer-events: none;
 }
+
+/* =========================
+   お菓子ページ
+   ========================= */
+
+body.sweets-page {
+  margin: 0;
+  min-height: 100vh;
+
+  background: #f7f3ea;
+  color: #2f2a24;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+
+/* =========================
+   壁掛けボード
+   ========================= */
+
+.recipe-board {
+  position: relative;
+
+  width: min(850px, 88vw);
+  min-height: 520px;
+
+  padding: 70px 55px 55px;
+
+  background: #c9a77a;
+
+  border: 5px solid #72583b;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+
+/* 上の留め具 */
+
+
+
+/* =========================
+   写真
+   ========================= */
+
+.photo-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 42px 38px;
+}
+
+.recipe-photo {
+  display: block;
+
+  aspect-ratio: 4 / 3;
+
+  background: #f6f0e6;
+
+  border: 6px solid #f6f0e6;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.recipe-photo:nth-child(1) {
+  transform: rotate(-2deg);
+}
+
+.recipe-photo:nth-child(2) {
+  transform: rotate(1.4deg);
+}
+
+.recipe-photo:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.recipe-photo:nth-child(4) {
+  transform: rotate(1deg);
+}
+
+.recipe-photo:nth-child(5) {
+  transform: rotate(-1.5deg);
+}
+
+.recipe-photo:nth-child(6) {
+  transform: rotate(1.8deg);
+}
+
+.recipe-photo:hover {
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.24);
+}
+
+.recipe-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* 部屋にもどる */
+
+.back-room {
+  position: fixed;
+
+  left: 20px;
+  bottom: 18px;
+
+  color: #2f2a24;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   スマホ
+   ========================= */
+
+@media (max-width: 650px) {
+
+  .recipe-board {
+    width: 88vw;
+
+    padding: 55px 25px 35px;
+
+    min-height: 0;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 26px 22px;
+  }
+
+
+}

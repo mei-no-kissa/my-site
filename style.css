@@ -316,3 +316,50 @@ body.sweets-page {
     font-size: 12px;
   }
 }
+/* =========================
+   レシピ詳細ページ
+   ========================= */
+
+body.recipe-page {
+  margin: 0;
+  min-height: 100vh;
+  display: block;
+  padding: 40px 20px;
+  background: #f7f3ea;
+  color: #2f2a24;
+}
+
+.recipe-article {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 30px;
+  background: #fffaf2;
+  line-height: 1.8;
+}
+
+.recipe-main-image {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  margin: 20px 0 30px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.recipe-article h1 {
+  margin-top: 0;
+}
+
+@media (max-width: 650px) {
+  body.recipe-page {
+    padding: 15px;
+  }
+
+  .recipe-article {
+    padding: 20px;
+  }
+
+  .recipe-main-image {
+    max-height: 360px;
+  }
+}

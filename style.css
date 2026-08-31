@@ -1,3 +1,7 @@
+/* =========================
+   全体
+   ========================= */
+
 * {
   box-sizing: border-box;
 }
@@ -15,16 +19,12 @@ body {
 
 
 /* =========================
-   部屋そのもの
+   最初の部屋
    ========================= */
 
 .room {
   position: relative;
 
-  /*
-    ラフ画像に合わせて4:3にする。
-    縦横どちらにも画面からはみ出さない。
-  */
   width: min(100vw, calc(100vh * 4 / 3));
   aspect-ratio: 4 / 3;
 
@@ -38,7 +38,7 @@ body {
 
 
 /* =========================
-   透明ボタン
+   部屋の透明クリック領域
    ========================= */
 
 .hotspot {
@@ -56,12 +56,7 @@ body {
 }
 
 
-
-
-
-/* =========================
-   カメラ
-   ========================= */
+/* カメラ */
 
 .camera {
   left: 15%;
@@ -72,10 +67,7 @@ body {
 }
 
 
-/* =========================
-   個展
-   壁の写真・絵あたり
-   ========================= */
+/* 個展 */
 
 .gallery {
   left: 34%;
@@ -86,9 +78,7 @@ body {
 }
 
 
-/* =========================
-   扇風機
-   ========================= */
+/* 扇風機 */
 
 .fan {
   left: 20%;
@@ -99,9 +89,7 @@ body {
 }
 
 
-/* =========================
-   ケーキ
-   ========================= */
+/* ケーキ */
 
 .cake {
   left: 46%;
@@ -112,9 +100,7 @@ body {
 }
 
 
-/* =========================
-   ノート
-   ========================= */
+/* ノート */
 
 .diary {
   left: 56%;
@@ -125,9 +111,7 @@ body {
 }
 
 
-/* =========================
-   スリッパ
-   ========================= */
+/* スリッパ */
 
 .slippers {
   left: 18%;
@@ -138,10 +122,7 @@ body {
 }
 
 
-/* =========================
-   時計
-   後で本当の日本時間と連動させる
-   ========================= */
+/* 時計 */
 
 .clock {
   position: absolute;
@@ -155,12 +136,15 @@ body {
   pointer-events: none;
 }
 
-/* =========================
+
+/* ==================================================
    お菓子ページ
-   ========================= */
+   ================================================== */
 
 body.sweets-page {
   margin: 0;
+
+  width: 100%;
   min-height: 100vh;
 
   background: #f7f3ea;
@@ -171,63 +155,86 @@ body.sweets-page {
   align-items: center;
 
   position: relative;
+
+  padding: 30px;
 }
 
 
 /* =========================
-   壁掛けボード
+   手描きの壁掛けボード
    ========================= */
 
 .recipe-board {
   position: relative;
 
-  width: min(850px, 88vw);
-  min-height: 520px;
+  width: min(850px, 92vw);
+  aspect-ratio: 3 / 4;
 
-  padding: 70px 55px 55px;
+  background-image: url("images/recipe-board.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  background: #c9a77a;
+  padding: 0;
 
-  border: 5px solid #72583b;
-  border-radius: 18px;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
-
-
-/* 上の留め具 */
-
 
 
 /* =========================
-   写真
+   ボードに貼る最新6件
    ========================= */
 
 .photo-grid {
+  position: absolute;
+
+  /*
+    手描きボードの「写真を貼る場所」に
+    この領域を重ねる
+  */
+  left: 12%;
+  top: 43%;
+
+  width: 76%;
+  height: 40%;
+
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 
-  gap: 42px 38px;
+  column-gap: 8%;
+  row-gap: 14%;
 }
+
+
+/* =========================
+   各サムネイル
+   ========================= */
 
 .recipe-photo {
   display: block;
 
-  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
 
   background: #f6f0e6;
 
-  border: 6px solid #f6f0e6;
+  border: 4px solid #f6f0e6;
 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
-
-  overflow: hidden;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.16);
 
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease;
 }
+
+
+/* 少しだけ写真をバラバラに貼る */
 
 .recipe-photo:nth-child(1) {
   transform: rotate(-2deg);
@@ -253,21 +260,29 @@ body.sweets-page {
   transform: rotate(1.8deg);
 }
 
+
+/* カーソルを乗せた時 */
+
 .recipe-photo:hover {
-  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.22);
 }
 
+
+/* サムネイル画像 */
+
 .recipe-photo img {
+  display: block;
+
   width: 100%;
   height: 100%;
 
   object-fit: cover;
-
-  display: block;
 }
 
 
-/* 部屋にもどる */
+/* =========================
+   部屋にもどる
+   ========================= */
 
 .back-room {
   position: fixed;
@@ -276,7 +291,6 @@ body.sweets-page {
   bottom: 18px;
 
   color: #2f2a24;
-
   font-size: 14px;
 }
 
@@ -287,19 +301,18 @@ body.sweets-page {
 
 @media (max-width: 650px) {
 
+  body.sweets-page {
+    padding: 10px;
+  }
+
   .recipe-board {
-    width: 88vw;
-
-    padding: 55px 25px 35px;
-
-    min-height: 0;
+    width: 96vw;
   }
 
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .back-room {
+    left: 12px;
+    bottom: 10px;
 
-    gap: 26px 22px;
+    font-size: 12px;
   }
-
-
 }

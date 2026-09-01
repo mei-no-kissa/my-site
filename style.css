@@ -10,13 +10,19 @@ body {
   margin: 0;
   min-height: 100vh;
 
-  background: #222;
+  /* あたたかみのある白 */
+  background: #f7f3ea;
 
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
+  /* 上下の焦茶色の帯 */
+  border-top: 14px solid #4b3325;
+  border-bottom: 14px solid #4b3325;
+
+  box-sizing: border-box;
+}
 
 /* =========================
    最初の部屋
@@ -362,4 +368,92 @@ body.recipe-page {
   .recipe-main-image {
     max-height: 360px;
   }
+}
+/* =========================
+   入口ページ
+   ========================= */
+
+body.entrance-page {
+  margin: 0;
+  min-height: 100vh;
+  background: #f7f3ea;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top: 14px solid #4b3325;
+  border-bottom: 14px solid #4b3325;
+
+  box-sizing: border-box;
+}
+
+.entrance {
+  text-align: center;
+}
+
+.welcome-plate {
+  position: relative;
+
+  min-width: 240px;
+  padding: 30px 45px;
+
+  border: 3px solid #4b3325;
+  border-radius: 6px;
+
+  background: #d8c09a;
+  color: #4b3325;
+
+  font-size: 30px;
+  letter-spacing: 0.22em;
+
+  cursor: pointer;
+
+  transform-origin: 50% -50px;
+}
+
+/* 仮の吊り紐 */
+.welcome-plate::before,
+.welcome-plate::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 2px;
+
+  top: -38px;
+
+  background: #4b3325;
+}
+
+.welcome-plate::before {
+  left: 50%;
+  transform-origin: left center;
+  transform: rotate(-28deg);
+}
+
+.welcome-plate::after {
+  right: 50%;
+  transform-origin: right center;
+  transform: rotate(28deg);
+}
+
+.welcome-plate.swing {
+  animation: plate-swing 0.5s ease;
+}
+
+@keyframes plate-swing {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(3deg); }
+  50%  { transform: rotate(-3deg); }
+  75%  { transform: rotate(1.5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.entrance-note {
+  margin-top: 55px;
+
+  color: #725846;
+  font-size: 13px;
 }

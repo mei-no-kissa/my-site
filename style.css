@@ -375,8 +375,11 @@ body.recipe-page {
 
 body.entrance-page {
   margin: 0;
+  width: 100%;
   min-height: 100vh;
+
   background: #f7f3ea;
+  color: #4b3325;
 
   display: flex;
   justify-content: center;
@@ -389,6 +392,7 @@ body.entrance-page {
 }
 
 .entrance {
+  width: 100%;
   text-align: center;
 }
 
@@ -396,33 +400,35 @@ body.entrance-page {
   position: relative;
 
   min-width: 240px;
-  padding: 30px 45px;
-
-  border: 3px solid #4b3325;
-  border-radius: 6px;
+  padding: 28px 42px;
 
   background: #d8c09a;
   color: #4b3325;
 
-  font-size: 30px;
-  letter-spacing: 0.22em;
+  border: 3px solid #4b3325;
+  border-radius: 6px;
+
+  font-size: 28px;
+  letter-spacing: 0.18em;
 
   cursor: pointer;
 
-  transform-origin: 50% -50px;
+  transform-origin: 50% -45px;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* 仮の吊り紐 */
+
+/* 吊り紐 */
+
 .welcome-plate::before,
 .welcome-plate::after {
   content: "";
 
   position: absolute;
+  top: -38px;
 
   width: 100px;
   height: 2px;
-
-  top: -38px;
 
   background: #4b3325;
 }
@@ -439,17 +445,37 @@ body.entrance-page {
   transform: rotate(28deg);
 }
 
+
+/* タップした時に揺れる */
+
 .welcome-plate.swing {
   animation: plate-swing 0.5s ease;
 }
 
 @keyframes plate-swing {
-  0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(3deg); }
-  50%  { transform: rotate(-3deg); }
-  75%  { transform: rotate(1.5deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(3deg);
+  }
+
+  50% {
+    transform: rotate(-3deg);
+  }
+
+  75% {
+    transform: rotate(1.5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
+
+
+/* 下の説明 */
 
 .entrance-note {
   margin-top: 55px;
